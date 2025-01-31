@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $title = 'About, World!';
+    return view('welcome', ['title'=> $title]);
 });
 
 Route::get('/about', function () {
@@ -25,4 +26,12 @@ Route::group([
         Route::get('/show', function () {
             return 'show comes here';
         })->name('show');
+    });
+
+    Route::get('/contact', function () {
+        return view('contact');
+    });
+
+    Route::get('/about', function () {
+        return view('about');
     });
